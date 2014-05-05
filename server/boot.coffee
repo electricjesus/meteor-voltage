@@ -1,3 +1,5 @@
+root = exports ? this;
+
 Meteor.startup ->
 
   ##############################################################################
@@ -17,7 +19,7 @@ Meteor.startup ->
     config: (appConfig) ->
       @settings = _.extend(@settings, appConfig)
 
-  @Voltage = Voltage
+  root.Voltage = Voltage
 
   ##############################################################################
   # Server-side methods
@@ -32,3 +34,5 @@ Meteor.startup ->
         return false
 
       true
+      
+  return;
